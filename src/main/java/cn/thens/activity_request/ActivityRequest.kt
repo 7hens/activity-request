@@ -5,7 +5,6 @@ import android.content.Intent
 import android.content.IntentSender
 import android.content.pm.PackageManager
 import android.os.Bundle
-import android.util.Log
 import android.util.SparseArray
 import android.view.WindowManager
 import androidx.core.view.ViewCompat
@@ -24,22 +23,26 @@ class ActivityRequest(private val context: Context) {
         } as T
     }
 
-    suspend fun result(intent: Intent, options: Bundle? = null): Result {
+    suspend fun startForResult(intent: Intent, options: Bundle? = null): Result {
         return request { startActivityForResult(intent, it, options) }
     }
 
-    suspend fun result(intent: IntentSender, fillInIntent: Intent, flagsMask: Int,
-                       flagsValues: Int, extraFlags: Int, options: Bundle? = null): Result {
+    suspend fun startForResult(intent: IntentSender, fillInIntent: Intent, flagsMask: Int,
+                               flagsValues: Int, extraFlags: Int, options: Bundle? = null): Result {
         return request {
-            startIntentSenderForResult(intent, it, fillInIntent, flagsMask, flagsValues, extraFlags, options)
+            startIntentSenderForResult(intent, it, fillInIntent, flagsMask,
+                flagsValues, extraFlags, options)
         }
     }
 
-    suspend fun permissions(vararg permissions: String): Map<String, Boolean> {
+    suspend fun requestPermissions(vararg permissions: String): Map<String, Boolean> {
         return request { requestPermissions(permissions, it) }
     }
 
-    private data class Contract(val request: Fragment.(requestCode: Int) -> Unit, val continuation: Continuation<Any>) {
+    private data class Contract(
+        val request: Fragment.(requestCode: Int) -> Unit,
+        val continuation: Continuation<Any>
+    ) {
         private var isRequested = false
 
         fun launch(context: Context, requestCode: Int) {

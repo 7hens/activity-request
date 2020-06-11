@@ -6,7 +6,6 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import cn.thens.activity_request.ActivityRequest
 import cn.thens.activity_request.AndroidPermissions
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.coroutines.CoroutineScope
@@ -33,8 +32,7 @@ class MainActivity : AppCompatActivity(), CoroutineScope by MainScope() {
     }
 
     private suspend fun Context.startActivitySample() {
-        val intent = Intent(this, TargetActivity::class.java)
-        val (code, data) = ActivityRequest(this).result(intent)
+        val (code, data) = TargetActivity.startForResult(this)
         when (code) {
             Activity.RESULT_OK -> toast("result: ${data.action}")
             Activity.RESULT_CANCELED -> toast("canceled")

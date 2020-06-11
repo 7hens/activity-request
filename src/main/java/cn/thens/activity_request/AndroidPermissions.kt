@@ -19,14 +19,14 @@ object AndroidPermissions {
             }
         }
         if (notSurePermissions.isNotEmpty()) {
-            ActivityRequest(context).permissions(*notSurePermissions.toTypedArray()).toMap(result)
+            ActivityRequest(context).requestPermissions(*notSurePermissions.toTypedArray()).toMap(result)
         }
         return result
     }
 
     suspend fun request(context: Context, permission: String): Boolean {
         if (isGranted(context, permission)) return true
-        return ActivityRequest(context).permissions(permission)[permission] == true
+        return ActivityRequest(context).requestPermissions(permission)[permission] == true
     }
 
     fun shouldShowRationale(activity: Activity, permission: String): Boolean {
