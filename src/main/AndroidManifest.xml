@@ -1,0 +1,12 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="cn.thens.activity_request">
+
+    <application>
+        <activity android:name=".ActivityRequest$BridgeActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:launchMode="singleInstance"
+            android:multiprocess="true"
+            android:theme="@style/ActivityRequestTheme"/>
+    </application>
+</manifest>
