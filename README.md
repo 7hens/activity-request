@@ -1,7 +1,6 @@
 # Activity Request
 
 [![jitpack](https://jitpack.io/v/7hens/activity-request.svg)](https://jitpack.io/#7hens/activity-request)
-![travis](https://img.shields.io/travis/7hens/activity-request)
 [![license](https://img.shields.io/github/license/7hens/activity-request.svg)](https://github.com/7hens/activity-request/blob/master/LICENSE)
 
 - - -
