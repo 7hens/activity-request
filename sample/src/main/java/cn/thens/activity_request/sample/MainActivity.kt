@@ -1,6 +1,7 @@
 package cn.thens.activity_request.sample
 
 import android.app.Activity
+import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
@@ -32,7 +33,10 @@ class MainActivity : AppCompatActivity(), CoroutineScope by MainScope() {
     }
 
     private suspend fun Context.startActivitySample() {
-        val (code, data) = TargetActivity.startForResult(this)
+        val (code, data) = TargetActivity.startForResult(this) {
+            it.actionName = "action2"
+            it.activityInfo = packageManager.getActivityInfo(ComponentName(packageName, TargetActivity::class.java.name), 0)
+        }
         when (code) {
             Activity.RESULT_OK -> toast("result: ${data.action}")
             Activity.RESULT_CANCELED -> toast("canceled")

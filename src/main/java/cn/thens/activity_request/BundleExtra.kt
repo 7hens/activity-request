@@ -17,159 +17,156 @@ import kotlin.properties.ReadWriteProperty
 @Suppress("unused")
 interface BundleExtra {
     @RequiresApi(Build.VERSION_CODES.JELLY_BEAN_MR2)
-    fun binder(): ReadWriteProperty<Bundle, IBinder?> {
-        return property(Bundle::getBinder, Bundle::putBinder)
+    fun binder(name: String? = null): ReadWriteProperty<Bundle, IBinder?> {
+        return property(name, Bundle::getBinder, Bundle::putBinder)
     }
 
     @RequiresApi(Build.VERSION_CODES.LOLLIPOP_MR1)
-    fun boolean(defaultValue: Boolean = false): ReadWriteProperty<Bundle, Boolean> {
-        return property(defaultValue, Bundle::getBoolean, Bundle::putBoolean)
+    fun boolean(name: String? = null, defaultValue: Boolean = false): ReadWriteProperty<Bundle, Boolean> {
+        return property(name, defaultValue, Bundle::getBoolean, Bundle::putBoolean)
     }
 
     @RequiresApi(Build.VERSION_CODES.LOLLIPOP_MR1)
-    fun booleanArray(): ReadWriteProperty<Bundle, BooleanArray?> {
-        return property(Bundle::getBooleanArray, Bundle::putBooleanArray)
+    fun booleanArray(name: String? = null): ReadWriteProperty<Bundle, BooleanArray?> {
+        return property(name, Bundle::getBooleanArray, Bundle::putBooleanArray)
     }
 
-    fun bundle(): ReadWriteProperty<Bundle, Bundle?> {
-        return property(Bundle::getBundle, Bundle::putBundle)
+    fun bundle(name: String? = null): ReadWriteProperty<Bundle, Bundle?> {
+        return property(name, Bundle::getBundle, Bundle::putBundle)
     }
 
-    fun byte(defaultValue: Byte): ReadWriteProperty<Bundle, Byte> {
-        return property(defaultValue, Bundle::getByte, Bundle::putByte)
+    fun byte(name: String? = null, defaultValue: Byte): ReadWriteProperty<Bundle, Byte> {
+        return property(name, defaultValue, Bundle::getByte, Bundle::putByte)
     }
 
-    fun byteArray(): ReadWriteProperty<Bundle, ByteArray?> {
-        return property(Bundle::getByteArray, Bundle::putByteArray)
+    fun byteArray(name: String? = null): ReadWriteProperty<Bundle, ByteArray?> {
+        return property(name, Bundle::getByteArray, Bundle::putByteArray)
     }
 
-    fun char(defaultValue: Char = Char.MIN_VALUE): ReadWriteProperty<Bundle, Char> {
-        return property(defaultValue, Bundle::getChar, Bundle::putChar)
+    fun char(name: String? = null, defaultValue: Char = Char.MIN_VALUE): ReadWriteProperty<Bundle, Char> {
+        return property(name, defaultValue, Bundle::getChar, Bundle::putChar)
     }
 
-    fun charArray(): ReadWriteProperty<Bundle, CharArray?> {
-        return property(Bundle::getCharArray, Bundle::putCharArray)
+    fun charArray(name: String? = null): ReadWriteProperty<Bundle, CharArray?> {
+        return property(name, Bundle::getCharArray, Bundle::putCharArray)
     }
 
-    fun charSequence(defaultValue: CharSequence = ""): ReadWriteProperty<Bundle, CharSequence> {
-        return property(defaultValue, Bundle::getCharSequence, Bundle::putCharSequence)
+    fun charSequence(name: String? = null, defaultValue: CharSequence = ""): ReadWriteProperty<Bundle, CharSequence> {
+        return property(name, defaultValue, Bundle::getCharSequence, Bundle::putCharSequence)
     }
 
-    fun charSequenceArray(): ReadWriteProperty<Bundle, Array<CharSequence>?> {
-        return property(Bundle::getCharSequenceArray, Bundle::putCharSequenceArray)
+    fun charSequenceArray(name: String? = null): ReadWriteProperty<Bundle, Array<CharSequence>?> {
+        return property(name, Bundle::getCharSequenceArray, Bundle::putCharSequenceArray)
     }
 
-    fun charSequenceArrayList(): ReadWriteProperty<Bundle, java.util.ArrayList<CharSequence>?> {
-        return property(Bundle::getCharSequenceArrayList, Bundle::putCharSequenceArrayList)
-    }
-
-    @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
-    fun double(defaultValue: Double = 0.0): ReadWriteProperty<Bundle, Double> {
-        return property(defaultValue, Bundle::getDouble, Bundle::putDouble)
+    fun charSequenceArrayList(name: String? = null): ReadWriteProperty<Bundle, java.util.ArrayList<CharSequence>?> {
+        return property(name, Bundle::getCharSequenceArrayList, Bundle::putCharSequenceArrayList)
     }
 
     @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
-    fun doubleArray(): ReadWriteProperty<Bundle, DoubleArray?> {
-        return property(Bundle::getDoubleArray, Bundle::putDoubleArray)
-    }
-
-    fun float(defaultValue: Float = 0F): ReadWriteProperty<Bundle, Float> {
-        return property(defaultValue, Bundle::getFloat, Bundle::putFloat)
-    }
-
-    fun floatArray(): ReadWriteProperty<Bundle, FloatArray?> {
-        return property(Bundle::getFloatArray, Bundle::putFloatArray)
+    fun double(name: String? = null, defaultValue: Double = 0.0): ReadWriteProperty<Bundle, Double> {
+        return property(name, defaultValue, Bundle::getDouble, Bundle::putDouble)
     }
 
     @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
-    fun int(defaultValue: Int = 0): ReadWriteProperty<Bundle, Int> {
-        return property(defaultValue, Bundle::getInt, Bundle::putInt)
+    fun doubleArray(name: String? = null): ReadWriteProperty<Bundle, DoubleArray?> {
+        return property(name, Bundle::getDoubleArray, Bundle::putDoubleArray)
+    }
+
+    fun float(name: String? = null, defaultValue: Float = 0F): ReadWriteProperty<Bundle, Float> {
+        return property(name, defaultValue, Bundle::getFloat, Bundle::putFloat)
+    }
+
+    fun floatArray(name: String? = null): ReadWriteProperty<Bundle, FloatArray?> {
+        return property(name, Bundle::getFloatArray, Bundle::putFloatArray)
     }
 
     @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
-    fun intArray(): ReadWriteProperty<Bundle, IntArray?> {
-        return property(Bundle::getIntArray, Bundle::putIntArray)
-    }
-
-    fun intArrayList(): ReadWriteProperty<Bundle, java.util.ArrayList<Int>?> {
-        return property(Bundle::getIntegerArrayList, Bundle::putIntegerArrayList)
+    fun int(name: String? = null, defaultValue: Int = 0): ReadWriteProperty<Bundle, Int> {
+        return property(name, defaultValue, Bundle::getInt, Bundle::putInt)
     }
 
     @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
-    fun long(defaultValue: Long = 0): ReadWriteProperty<Bundle, Long> {
-        return property(defaultValue, Bundle::getLong, Bundle::putLong)
+    fun intArray(name: String? = null): ReadWriteProperty<Bundle, IntArray?> {
+        return property(name, Bundle::getIntArray, Bundle::putIntArray)
+    }
+
+    fun intArrayList(name: String? = null): ReadWriteProperty<Bundle, java.util.ArrayList<Int>?> {
+        return property(name, Bundle::getIntegerArrayList, Bundle::putIntegerArrayList)
     }
 
     @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
-    fun longArray(): ReadWriteProperty<Bundle, LongArray?> {
-        return property(Bundle::getLongArray, Bundle::putLongArray)
-    }
-
-    fun <T : Parcelable> parcelable(): ReadWriteProperty<Bundle, T> {
-        return property(Bundle::getParcelable, Bundle::putParcelable)
-    }
-
-    fun parcelableArray(): ReadWriteProperty<Bundle, Array<Parcelable>?> {
-        return property(Bundle::getParcelableArray, Bundle::putParcelableArray)
-    }
-
-    fun <T : Parcelable> parcelableArrayList(): ReadWriteProperty<Bundle, ArrayList<T>> {
-        return property(Bundle::getParcelableArrayList, Bundle::putParcelableArrayList)
-    }
-
-    fun serializable(): ReadWriteProperty<Bundle, Serializable?> {
-        return property(Bundle::getSerializable, Bundle::putSerializable)
-    }
-
-    fun short(defaultValue: Short = 0): ReadWriteProperty<Bundle, Short> {
-        return property(defaultValue, Bundle::getShort, Bundle::putShort)
-    }
-
-    fun shortArray(): ReadWriteProperty<Bundle, ShortArray?> {
-        return property(Bundle::getShortArray, Bundle::putShortArray)
+    fun long(name: String? = null, defaultValue: Long = 0): ReadWriteProperty<Bundle, Long> {
+        return property(name, defaultValue, Bundle::getLong, Bundle::putLong)
     }
 
     @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
-    fun size(): ReadWriteProperty<Bundle, Size?> {
-        return property(Bundle::getSize, Bundle::putSize)
+    fun longArray(name: String? = null): ReadWriteProperty<Bundle, LongArray?> {
+        return property(name, Bundle::getLongArray, Bundle::putLongArray)
+    }
+
+    fun <T : Parcelable> parcelable(name: String? = null): ReadWriteProperty<Bundle, T?> {
+        return property(name, Bundle::getParcelable, Bundle::putParcelable)
+    }
+
+    fun parcelableArray(name: String? = null): ReadWriteProperty<Bundle, Array<Parcelable>?> {
+        return property(name, Bundle::getParcelableArray, Bundle::putParcelableArray)
+    }
+
+    fun <T : Parcelable> parcelableArrayList(name: String? = null): ReadWriteProperty<Bundle, ArrayList<T>?> {
+        return property(name, Bundle::getParcelableArrayList, Bundle::putParcelableArrayList)
+    }
+
+    fun serializable(name: String? = null): ReadWriteProperty<Bundle, Serializable?> {
+        return property(name, Bundle::getSerializable, Bundle::putSerializable)
+    }
+
+    fun short(name: String? = null, defaultValue: Short = 0): ReadWriteProperty<Bundle, Short> {
+        return property(name, defaultValue, Bundle::getShort, Bundle::putShort)
+    }
+
+    fun shortArray(name: String? = null): ReadWriteProperty<Bundle, ShortArray?> {
+        return property(name, Bundle::getShortArray, Bundle::putShortArray)
     }
 
     @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
-    fun sizeF(): ReadWriteProperty<Bundle, SizeF?> {
-        return property(Bundle::getSizeF, Bundle::putSizeF)
-    }
-
-    fun <T : Parcelable> sparseParcelableArray(): ReadWriteProperty<Bundle, SparseArray<T>> {
-        return property(Bundle::getSparseParcelableArray, Bundle::putSparseParcelableArray)
+    fun size(name: String? = null): ReadWriteProperty<Bundle, Size?> {
+        return property(name, Bundle::getSize, Bundle::putSize)
     }
 
     @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
-    fun string(defaultValue: String = ""): ReadWriteProperty<Bundle, String> {
-        return property(defaultValue, Bundle::getString, Bundle::putString)
+    fun sizeF(name: String? = null): ReadWriteProperty<Bundle, SizeF?> {
+        return property(name, Bundle::getSizeF, Bundle::putSizeF)
+    }
+
+    fun <T : Parcelable> sparseParcelableArray(name: String? = null): ReadWriteProperty<Bundle, SparseArray<T>?> {
+        return property(name, Bundle::getSparseParcelableArray, Bundle::putSparseParcelableArray)
     }
 
     @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
-    fun stringArray(): ReadWriteProperty<Bundle, Array<String>?> {
-        return property(Bundle::getStringArray, Bundle::putStringArray)
+    fun string(name: String? = null, defaultValue: String = ""): ReadWriteProperty<Bundle, String> {
+        return property(name, defaultValue, Bundle::getString, Bundle::putString)
     }
 
-    fun stringArrayList(): ReadWriteProperty<Bundle, java.util.ArrayList<String>?> {
-        return property(Bundle::getStringArrayList, Bundle::putStringArrayList)
+    @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
+    fun stringArray(name: String? = null): ReadWriteProperty<Bundle, Array<String>?> {
+        return property(name, Bundle::getStringArray, Bundle::putStringArray)
+    }
+
+    fun stringArrayList(name: String? = null): ReadWriteProperty<Bundle, java.util.ArrayList<String>?> {
+        return property(name, Bundle::getStringArrayList, Bundle::putStringArrayList)
     }
 
     companion object : BundleExtra
 
-    interface CompanionOptions<out Options> : BundleExtra {
-        @Suppress("UNCHECKED_CAST")
-        private val options: Options
-            get() = this as Options
-
-        fun bundle(configure: Options.(Bundle) -> Unit): Bundle {
+    interface Options<out T> : BundleExtra {
+        fun bundle(configure: T.(Bundle) -> Unit): Bundle {
             return apply(Bundle(), configure)
         }
 
-        fun apply(bundle: Bundle, configure: Options.(Bundle) -> Unit): Bundle {
-            configure(options, bundle)
+        @Suppress("UNCHECKED_CAST")
+        fun apply(bundle: Bundle, configure: T.(Bundle) -> Unit): Bundle {
+            configure(this as T, bundle)
             return bundle
         }
     }

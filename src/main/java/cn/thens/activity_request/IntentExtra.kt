@@ -14,136 +14,131 @@ import kotlin.properties.ReadWriteProperty
 @Suppress("unused")
 interface IntentExtra {
 
-    fun boolean(defaultValue: Boolean = false): ReadWriteProperty<Intent, Boolean> {
-        return property(defaultValue, Intent::getBooleanExtra) { n, v -> putExtra(n, v) }
+    fun boolean(name: String? = null, defaultValue: Boolean = false): ReadWriteProperty<Intent, Boolean> {
+        return property(name, defaultValue, Intent::getBooleanExtra) { k, v -> putExtra(k, v) }
     }
 
-    fun booleanArray(): ReadWriteProperty<Intent, BooleanArray> {
-        return property(Intent::getBooleanArrayExtra) { n, v -> putExtra(n, v) }
+    fun booleanArray(name: String? = null): ReadWriteProperty<Intent, BooleanArray?> {
+        return property(name, Intent::getBooleanArrayExtra) { k, v -> putExtra(k, v) }
     }
 
-    fun bundle(): ReadWriteProperty<Intent, Bundle> {
-        return property(Intent::getBundleExtra) { n, v -> putExtra(n, v) }
+    fun bundle(name: String? = null): ReadWriteProperty<Intent, Bundle?> {
+        return property(name, Intent::getBundleExtra) { k, v -> putExtra(k, v) }
     }
 
-    fun byte(defaultValue: Byte = 0): ReadWriteProperty<Intent, Byte> {
-        return property(defaultValue, Intent::getByteExtra) { n, v -> putExtra(n, v) }
+    fun byte(name: String? = null, defaultValue: Byte = 0): ReadWriteProperty<Intent, Byte> {
+        return property(name, defaultValue, Intent::getByteExtra) { k, v -> putExtra(k, v) }
     }
 
-    fun byteArray(): ReadWriteProperty<Intent, ByteArray> {
-        return property(Intent::getByteArrayExtra) { n, v -> putExtra(n, v) }
+    fun byteArray(name: String? = null): ReadWriteProperty<Intent, ByteArray?> {
+        return property(name, Intent::getByteArrayExtra) { k, v -> putExtra(k, v) }
     }
 
-    fun char(defaultValue: Char = Char.MIN_VALUE): ReadWriteProperty<Intent, Char> {
-        return property(defaultValue, Intent::getCharExtra) { n, v -> putExtra(n, v) }
+    fun char(name: String? = null, defaultValue: Char = Char.MIN_VALUE): ReadWriteProperty<Intent, Char> {
+        return property(name, defaultValue, Intent::getCharExtra) { k, v -> putExtra(k, v) }
     }
 
-    fun charArray(): ReadWriteProperty<Intent, CharArray> {
-        return property(Intent::getCharArrayExtra) { n, v -> putExtra(n, v) }
+    fun charArray(name: String? = null): ReadWriteProperty<Intent, CharArray?> {
+        return property(name, Intent::getCharArrayExtra) { k, v -> putExtra(k, v) }
     }
 
-    fun charSequence(): ReadWriteProperty<Intent, CharSequence> {
-        return property(Intent::getCharSequenceExtra) { n, v -> putExtra(n, v) }
+    fun charSequence(name: String? = null): ReadWriteProperty<Intent, CharSequence?> {
+        return property(name, Intent::getCharSequenceExtra) { k, v -> putExtra(k, v) }
     }
 
-    fun charSequenceArray(): ReadWriteProperty<Intent, Array<CharSequence>> {
-        return property(Intent::getCharSequenceArrayExtra) { n, v -> putExtra(n, v) }
+    fun charSequenceArray(name: String? = null): ReadWriteProperty<Intent, Array<CharSequence>?> {
+        return property(name, Intent::getCharSequenceArrayExtra) { k, v -> putExtra(k, v) }
     }
 
-    fun charSequenceArrayList(): ReadWriteProperty<Intent, java.util.ArrayList<CharSequence>> {
-        return property(Intent::getCharSequenceArrayListExtra) { n, v -> putExtra(n, v) }
+    fun charSequenceArrayList(name: String? = null): ReadWriteProperty<Intent, java.util.ArrayList<CharSequence>?> {
+        return property(name, Intent::getCharSequenceArrayListExtra) { k, v -> putExtra(k, v) }
     }
 
 
-    fun double(defaultValue: Double = 0.0): ReadWriteProperty<Intent, Double> {
-        return property(defaultValue, Intent::getDoubleExtra) { n, v -> putExtra(n, v) }
+    fun double(name: String? = null, defaultValue: Double = 0.0): ReadWriteProperty<Intent, Double> {
+        return property(name, defaultValue, Intent::getDoubleExtra) { k, v -> putExtra(k, v) }
     }
 
-    fun doubleArray(): ReadWriteProperty<Intent, DoubleArray> {
-        return property(Intent::getDoubleArrayExtra) { n, v -> putExtra(n, v) }
+    fun doubleArray(name: String? = null): ReadWriteProperty<Intent, DoubleArray?> {
+        return property(name, Intent::getDoubleArrayExtra) { k, v -> putExtra(k, v) }
     }
 
-    fun float(defaultValue: Float = 0F): ReadWriteProperty<Intent, Float> {
-        return property(defaultValue, Intent::getFloatExtra) { n, v -> putExtra(n, v) }
+    fun float(name: String? = null, defaultValue: Float = 0F): ReadWriteProperty<Intent, Float> {
+        return property(name, defaultValue, Intent::getFloatExtra) { k, v -> putExtra(k, v) }
     }
 
-    fun floatArray(): ReadWriteProperty<Intent, FloatArray> {
-        return property(Intent::getFloatArrayExtra) { n, v -> putExtra(n, v) }
+    fun floatArray(name: String? = null): ReadWriteProperty<Intent, FloatArray?> {
+        return property(name, Intent::getFloatArrayExtra) { k, v -> putExtra(k, v) }
     }
 
-    fun int(defaultValue: Int = 0): ReadWriteProperty<Intent, Int> {
-        return property(defaultValue, Intent::getIntExtra) { n, v -> putExtra(n, v) }
+    fun int(name: String? = null, defaultValue: Int = 0): ReadWriteProperty<Intent, Int> {
+        return property(name, defaultValue, Intent::getIntExtra) { k, v -> putExtra(k, v) }
     }
 
-    fun intArray(): ReadWriteProperty<Intent, IntArray> {
-        return property(Intent::getIntArrayExtra) { n, v -> putExtra(n, v) }
+    fun intArray(name: String? = null): ReadWriteProperty<Intent, IntArray?> {
+        return property(name, Intent::getIntArrayExtra) { k, v -> putExtra(k, v) }
     }
 
-    fun intArrayList(): ReadWriteProperty<Intent, java.util.ArrayList<Int>> {
-        return property(Intent::getIntegerArrayListExtra) { n, v -> putExtra(n, v) }
+    fun intArrayList(name: String? = null): ReadWriteProperty<Intent, java.util.ArrayList<Int>?> {
+        return property(name, Intent::getIntegerArrayListExtra) { k, v -> putExtra(k, v) }
     }
 
-    fun long(defaultValue: Long = 0): ReadWriteProperty<Intent, Long> {
-        return property(defaultValue, Intent::getLongExtra) { n, v -> putExtra(n, v) }
+    fun long(name: String? = null, defaultValue: Long = 0): ReadWriteProperty<Intent, Long> {
+        return property(name, defaultValue, Intent::getLongExtra) { k, v -> putExtra(k, v) }
     }
 
-    fun longArray(): ReadWriteProperty<Intent, LongArray> {
-        return property(Intent::getLongArrayExtra) { n, v -> putExtra(n, v) }
+    fun longArray(name: String? = null): ReadWriteProperty<Intent, LongArray?> {
+        return property(name, Intent::getLongArrayExtra) { k, v -> putExtra(k, v) }
     }
 
-    fun <T : Parcelable> parcelable(): ReadWriteProperty<Intent, T> {
-        return property(Intent::getParcelableExtra) { n, v -> putExtra(n, v) }
+    fun <T : Parcelable> parcelable(name: String? = null): ReadWriteProperty<Intent, T?> {
+        return property(name, Intent::getParcelableExtra) { k, v -> putExtra(k, v) }
     }
 
-    fun parcelableArray(): ReadWriteProperty<Intent, Array<Parcelable>> {
-        return property(Intent::getParcelableArrayExtra) { n, v -> putExtra(n, v) }
+    fun parcelableArray(name: String? = null): ReadWriteProperty<Intent, Array<Parcelable>?> {
+        return property(name, Intent::getParcelableArrayExtra) { k, v -> putExtra(k, v) }
     }
 
-    fun <T : Parcelable> parcelableArrayList(): ReadWriteProperty<Intent, ArrayList<T>> {
-        return property(Intent::getParcelableArrayListExtra) { n, v -> putExtra(n, v) }
+    fun <T : Parcelable> parcelableArrayList(name: String? = null): ReadWriteProperty<Intent, ArrayList<T>?> {
+        return property(name, Intent::getParcelableArrayListExtra) { k, v -> putExtra(k, v) }
     }
 
-    fun serializable(): ReadWriteProperty<Intent, Serializable> {
-        return property(Intent::getSerializableExtra) { n, v -> putExtra(n, v) }
+    fun serializable(name: String? = null): ReadWriteProperty<Intent, Serializable?> {
+        return property(name, Intent::getSerializableExtra) { k, v -> putExtra(k, v) }
     }
 
-    fun short(defaultValue: Short = 0): ReadWriteProperty<Intent, Short> {
-        return property(defaultValue, Intent::getShortExtra) { n, v -> putExtra(n, v) }
+    fun short(name: String? = null, defaultValue: Short = 0): ReadWriteProperty<Intent, Short> {
+        return property(name, defaultValue, Intent::getShortExtra) { k, v -> putExtra(k, v) }
     }
 
-    fun shortArray(): ReadWriteProperty<Intent, ShortArray> {
-        return property(Intent::getShortArrayExtra) { n, v -> putExtra(n, v) }
+    fun shortArray(name: String? = null): ReadWriteProperty<Intent, ShortArray?> {
+        return property(name, Intent::getShortArrayExtra) { k, v -> putExtra(k, v) }
     }
 
-    fun string(): ReadWriteProperty<Intent, String> {
-        return property(Intent::getStringExtra) { n, v -> putExtra(n, v) }
+    fun string(name: String? = null): ReadWriteProperty<Intent, String?> {
+        return property(name, Intent::getStringExtra) { k, v -> putExtra(k, v) }
     }
 
-    fun stringArray(): ReadWriteProperty<Intent, Array<String>> {
-        return property(Intent::getStringArrayExtra) { n, v -> putExtra(n, v) }
+    fun stringArray(name: String? = null): ReadWriteProperty<Intent, Array<String>?> {
+        return property(name, Intent::getStringArrayExtra) { k, v -> putExtra(k, v) }
     }
 
-    fun stringArrayList(): ReadWriteProperty<Intent, java.util.ArrayList<String>> {
-        return property(Intent::getStringArrayListExtra) { n, v -> putExtra(n, v) }
+    fun stringArrayList(name: String? = null): ReadWriteProperty<Intent, java.util.ArrayList<String>?> {
+        return property(name, Intent::getStringArrayListExtra) { k, v -> putExtra(k, v) }
     }
 
     companion object : IntentExtra
 
-    interface CompanionOptions<out Options> : IntentExtra {
-        private val className: String
-            get() = javaClass.name.replace("\$Companion", "")
-
-        @Suppress("UNCHECKED_CAST")
-        private val options: Options
-            get() = this as Options
-
-        fun intent(context: Context, configure: Options.(Intent) -> Unit): Intent {
+    interface Options<out T> : IntentExtra {
+        fun intent(context: Context, configure: T.(Intent) -> Unit): Intent {
+            val className = javaClass.name.run { substring(0, lastIndexOf('$')) }
             val intent = Intent().setComponent(ComponentName(context.packageName, className))
             return apply(intent, configure)
         }
 
-        fun apply(intent: Intent, configure: Options.(Intent) -> Unit): Intent {
-            configure(options, intent)
+        @Suppress("UNCHECKED_CAST")
+        fun apply(intent: Intent, configure: T.(Intent) -> Unit): Intent {
+            configure(this as T, intent)
             return intent
         }
     }
