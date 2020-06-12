@@ -1,6 +1,14 @@
 # Activity Request
 
-让`startActivityForResult()`的调用变得如此简单。
+[![jitpack](https://jitpack.io/v/7hens/activity-request.svg)](https://jitpack.io/#7hens/activity-request)
+![travis](https://img.shields.io/travis/7hens/activity-request)
+[![license](https://img.shields.io/github/license/7hens/activity-request.svg)](https://github.com/7hens/activity-request/blob/master/LICENSE)
+
+- - -
+
+让`Activity`的启动变得如此简单。
+
+## 启动 Activity
 
 ```kotlin
 suspend fun startActivitySample(context: Context) {
@@ -14,7 +22,7 @@ suspend fun startActivitySample(context: Context) {
 }
 ```
 
-请求权限。
+## 请求动态权限
 
 ```kotlin
 private suspend fun requestPermissionsSample(context: Context) {
@@ -25,7 +33,7 @@ private suspend fun requestPermissionsSample(context: Context) {
 }
 ```
 
-配置 Intent 参数。
+## 使用带参数的 Intent
 
 ```kotlin
 MyActivity.start(context) {
@@ -53,3 +61,8 @@ class MyActivity: Activity() {
 }
 ```
 
+## 添加依赖
+
+```groovy
+implementation 'com.github.7hens:activity-request:0.1'
+```
